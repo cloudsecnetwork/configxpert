@@ -1,0 +1,2 @@
+# Example device configuration data
+# Contents of the configuration file go here
