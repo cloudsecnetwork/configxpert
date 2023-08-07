@@ -1,0 +1,33 @@
+# .dockerignore
+
+# Files and directories related to version control
+.git
+.gitignore
+
+# Python cache files
+__pycache__
+
+# Development files and directories
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyzw
+*.pyc
+*.egg-info
+
+# Temporary files and directories
+*.swp
+*.swo
+*.~
+*.bak
+*.pyc
+
+# Text editor-specific files and directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# Any other files or directories that are not required in the Docker image

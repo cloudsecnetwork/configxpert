@@ -1,2 +1,79 @@
-# Example device configuration data
-# Contents of the configuration file go here
+! Enable the privileged EXEC mode
+enable
+
+! Enter the global configuration mode
+configure terminal
+
+! Set the hostname for the router
+hostname Router1
+
+! Enable password-based authentication for console and VTY lines
+enable password my_console_vty_password
+line console 0
+ password my_console_vty_password
+ login
+
+line vty 0 15
+ password my_console_vty_password
+ login
+
+! Enable secret password is missing
+! enable secret YOUR_ENABLE_SECRET_PASSWORD
+
+! Configure the management interface with an IP address
+interface GigabitEthernet0/0
+ description Management Interface
+ ip address 192.168.1.1 255.255.255.0
+
+! Configure the WAN interface with an IP address (assuming connected to the Internet)
+interface GigabitEthernet0/1
+ description WAN Interface
+ ip address 203.0.113.1 255.255.255.0
+ ! Add any additional WAN configuration (e.g., NAT, DHCP, etc.)
+
+! Configure a LAN interface with an IP address and enable routing
+interface GigabitEthernet0/2
+ description LAN Interface
+ ip address 192.168.2.1 255.255.255.0
+ no shutdown
+
+! IP Source Routing is enabled (should be disabled)
+ip source-route
+
+! CDP is enabled on external interfaces (should be disabled)
+interface GigabitEthernet0/1
+ cdp enable
+
+! Unused Interface GigabitEthernet0/3 is not shut down
+interface GigabitEthernet0/3
+ no shutdown
+
+! Set up static routes for internal and external networks
+ip route 0.0.0.0 0.0.0.0 203.0.113.254
+ip route 192.168.3.0 255.255.255.0 192.168.2.2
+
+! Set up static default routes for internal networks pointing to a gateway
+ip route 192.168.4.0 255.255.255.0 192.168.2.3
+
+! Set up dynamic routing protocols if needed (e.g., OSPF, BGP)
+
+! Implement access control lists (ACLs) for traffic filtering
+access-list 1 permit 192.168.2.0 0.0.0.255
+access-list 2 deny any
+
+! Apply ACLs to interfaces (inbound or outbound as per your requirements)
+interface GigabitEthernet0/1
+ ip access-group 1 in
+
+! SSH is not enabled for remote access
+! ip domain-name example.com
+! crypto key generate rsa
+! ip ssh version 2
+! line vty 0 15
+!  transport input ssh
+
+! Implement other security features as needed (e.g., firewall, VPN, etc.)
+
+! Save the configuration
+end
+write memory

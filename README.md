@@ -17,7 +17,31 @@ ConfigXpert Net is a Python script that analyzes network device configurations t
 
 4. Place your network device configuration file (`device_config.txt`) in the `data/` directory.
 
-## Running the Script
+### Docker Build
+
+1. Clone this repository to your local machine:
+```
+git clone https://github.com/configxpert/configxpert-net.git
+```
+
+2. Navigate to the project directory:
+```
+cd configxpert-net
+```
+
+3. Build the Docker image using the following command:
+```
+docker build -t configxpert .
+```
+
+### Running the Docker Container
+
+After building the Docker image, you can run the ConfigXpert tool using the following command:
+```
+docker run -it --rm configxpert
+```
+
+## Running the Python Script
 
 To analyze the network device configuration and generate the security report, follow these steps:
 
