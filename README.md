@@ -1,4 +1,4 @@
-# ConfigXpert Net - Network Device Config Review Tool
+# ConfigXpert Net
 
 ## Overview
 ConfigXpert Net is a Python script that analyzes network device configurations to identify potential security vulnerabilities. It performs security checks on the provided configuration file and generates a detailed security report. This tool is intended to help network administrators and security professionals enhance the security posture of their network devices.
