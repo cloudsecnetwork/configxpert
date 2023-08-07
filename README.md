@@ -1,7 +1,7 @@
-# Config Review Tool - README
+# ConfigXpert Net - Network Device Config Review Tool
 
 ## Overview
-The Config Review Tool is a Python script that analyzes network device configurations to identify potential security vulnerabilities. It performs security checks on the provided configuration file and generates a detailed security report. This tool is intended to help network administrators and security professionals enhance the security posture of their network devices.
+ConfigXpert Net is a Python script that analyzes network device configurations to identify potential security vulnerabilities. It performs security checks on the provided configuration file and generates a detailed security report. This tool is intended to help network administrators and security professionals enhance the security posture of their network devices.
 
 ## Prerequisites
 - Python 3.x installed on your system.
