@@ -41,7 +41,7 @@ After building the Docker image, you can run the ConfigXpert tool using the foll
 docker run -it --rm configxpert
 ```
 
-## Running the Python Script
+## Running the Python Script 
 
 To analyze the network device configuration and generate the security report, follow these steps:
 
@@ -60,9 +60,9 @@ cd configxpert-net
 pip install -r requirements.txt
 ```
 
-4. The generated security report will be displayed on the console.
+4. The generated security report will be displayed on the console. You can also reference the location for you own config files instea.
 ```
-python main.py
+ python main.py -f "data/device_config.txt"
 ```
 
 ## Customizing Security Checks

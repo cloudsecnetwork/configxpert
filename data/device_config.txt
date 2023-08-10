@@ -7,6 +7,11 @@ configure terminal
 ! Set the hostname for the router
 hostname Router1
 
+enable secret cisco123
+username admin privilege 15 password 12345
+line vty 0 4
+password admin
+
 ! Enable password-based authentication for console and VTY lines
 enable password my_console_vty_password
 line console 0

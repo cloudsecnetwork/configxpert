@@ -12,7 +12,7 @@ def get_colored_status(status):
 # Function to generate the security report with colored output
 def generate_security_report(analyzed_results):
     # Create an empty report string to hold the report contents
-    report = "Security Check Results:\n"
+    report = "Security Check Results:\n\n"
 
     # Loop through each security check result and format the report
     for check_name, result in analyzed_results.items():
