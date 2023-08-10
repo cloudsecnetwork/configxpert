@@ -2,12 +2,18 @@ import colorama
 
 # Function to apply colors based on the pass/fail status
 def get_colored_status(status):
-    if status == "Pass":
+    if status == "PASS":
         return colorama.Fore.GREEN + status + colorama.Style.RESET_ALL
-    elif status == "Fail":
+    elif status == "FAIL":
         return colorama.Fore.RED + status + colorama.Style.RESET_ALL
     else:
         return status
+    
+def get_comment(comment):
+    if comment == "":
+        return ""
+    return f"- {comment}"
+    # return colorama.Fore.YELLOW + comment + colorama.Style.RESET_ALL
 
 # Function to generate the security report with colored output
 def generate_security_report(analyzed_results):
@@ -16,7 +22,8 @@ def generate_security_report(analyzed_results):
 
     # Loop through each security check result and format the report
     for check_name, result in analyzed_results.items():
-        colored_status = get_colored_status(result)
-        report += f"{check_name}: {colored_status}\n"
+        status = get_colored_status(result["value"])
+        comment = get_comment(result["comment"])
+        report += f"{status}: {check_name} {comment}\n"
 
     return report

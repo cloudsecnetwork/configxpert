@@ -1,4 +1,4 @@
-class defaultPassword:
+class DefaultPassword:
     def __init__(self, configuration):
         self.configuration = configuration
 
@@ -6,9 +6,11 @@ class defaultPassword:
         # Check for the presence of common default passwords
         default_passwords = ["cisco", "admin", "12345", "password"]
         
-        for line in self.configuration.splitlines():
+        for index, line in enumerate(self.configuration.splitlines(), start=1):
             for default in default_passwords:
                 if default in line.lower():
-                    # default password exists in config
-                    return "Fail"
-        return "True"
+                    return {
+                        "value": "FAIL",
+                        "comment": f"found on line {index}: '{line.strip()}'"
+                    }
+        return {"value": "PASS", "comment": ""}

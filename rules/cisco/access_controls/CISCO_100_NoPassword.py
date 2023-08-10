@@ -1,4 +1,4 @@
-class noPassword:
+class NoPassword:
     def __init__(self, configuration):
         self.configuration = configuration
 
@@ -7,5 +7,5 @@ class noPassword:
         for line in self.configuration.splitlines():
             if "password" in line.lower():
                 # password configuration is present
-                return "Pass"
-        return "Fail"
+                return {"value": "PASS", "comment": ""} 
+        return {"value": "FAIL", "comment": ""} 
