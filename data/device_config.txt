@@ -66,6 +66,77 @@ ip route 192.168.4.0 255.255.255.0 192.168.2.3
 access-list 1 permit 192.168.2.0 0.0.0.255
 access-list 2 deny any
 
+
+ip flow egress
+ip virtual-reassembly in
+
+duplex auto
+
+speed auto
+!
+
+ip forward-protocol nd
+!
+
+ip http server
+
+ip http authentication local
+ip http secure-server
+
+ip http timeout-policy idle 60 life 86400 requests 10000 ip http path flash:
+
+ip flow-export version 9
+
+ip flow-export interface-names
+ip flow-export destination 172.20.1.7 99
+
+ip flow-export destination 192.168.1.14 99
+!
+
+ip nat inside source list 55 interface GigabitEthernet0/2 overload ip route 0.0.0.0 0.0.0.0 192.168.99.1 ip route 0.0.0.0 0.0.0.0 217.117.1.57
+
+ip route 172.16.10.16 255.255.255.255 192.168.99.1
+!
+
+ip access-list extended Deny_Guest_OfficeNet 
+
+deny ip 192.168.3.0 0.0.0.255 192.168.101.0 0.0.0.255 deny ip 192.168.3.0 0.0.0.255 192.168.4.0 0.0.0.255 deny ip 192.168.3.0 0.0.0.255 172.20.0.0 0.0.255.255 deny ip 192.168.3.0 0.0.0.255 192.168.2.0 0.0.0.255 deny ip 192.168.3.0 0.0.0.255 10.10.28.0 0.0.0.255 permit ip 192.168.3.0 0.0.0.255 any ip access-list extended INTERNET
+
+deny  ip 172.0.0.0 0.16.255.255 any
+deny  ip 192.168.0.0 0.0.255.255 any
+
+deny  tcp any any eq 1720
+
+deny  udp any any eq 1720
+deny  tcp any any eq 1719
+
+deny  udp any any eq 1719
+deny  tcp any any eq 5060
+
+deny  tcp any any eq 5061
+
+deny  udp any any eq 5060
+deny  udp any any eq 5061
+
+deny  ip 10.0.0.0 0.255.255.255 any
+permit ip any any
+
+permit ip host 41.184.56.164 any
+permit ip host 62.173.33.242 any
+
+ip access-list extended VOICE-SIGNAL
+
+permit tcp any eq 5060 host 41.184.56.164 eq 5060 permit tcp any eq 5061 host 41.184.56.164 eq 5061 permit udp any eq 5061 host 41.184.56.164 eq 5061 permit udp any eq 5060 host 41.184.56.164 eq 5060 permit tcp any eq 5060 host 62.173.33.242 eq 5060 permit tcp any eq 5061 host 62.173.33.242 eq 5061 permit udp any eq 5060 host 62.173.33.242 eq 5060 permit udp any eq 5061 host 62.173.33.242 eq 5061 !
+
+logging host 192.168.1.14
+
+logging host 192.168.1.146 transport udp port 11001
+!
+
+snmp-server community public RO
+snmp-server community private RW
+snmp-server community mystring RO
+
 ! Apply ACLs to interfaces (inbound or outbound as per your requirements)
 interface GigabitEthernet0/1
  ip access-group 1 in
