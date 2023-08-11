@@ -10,7 +10,7 @@ def analyze_configuration(configuration):
     security_checks_results["Default Password in use"] = DefaultPassword(configuration).check()
     security_checks_results["Weak Password in use"] = WeakPassword(configuration).check()
     security_checks_results["Long HTTP Session Timeout"] = LongHTTPSessionTimeout(configuration).check()
-
+    security_checks_results["Admin Line without an ACL"] = NoAdminLineACL(configuration).check()
 
     security_checks_results["Default SNMP String"] = DefaultSNMPString(configuration).check()
 

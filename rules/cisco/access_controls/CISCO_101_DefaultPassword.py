@@ -11,6 +11,6 @@ class DefaultPassword:
                 if default in line.lower():
                     return {
                         "value": "FAIL",
-                        "comment": f"found on line {index}: '{line.strip()}'"
+                        "comment": f"found on Line {index}: '{line.strip()}'"
                     }
         return {"value": "PASS", "comment": ""}

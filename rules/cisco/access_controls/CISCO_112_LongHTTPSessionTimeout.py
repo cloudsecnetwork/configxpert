@@ -10,10 +10,9 @@ class LongHTTPSessionTimeout:
                 parts = line.split()
                 if len(parts) >= 7:
                     timeout = int(parts[6])
-                    print("timeout", timeout)
                     if timeout > timeout_limit:
                         return {
                             "value": "FAIL",
-                            "comment": f"found on line {index}: '{line.strip()}'"
+                            "comment": f"found on Line {index}: '{line.strip()}'"
                         }
         return {"value": "PASS", "comment": ""}
