@@ -136,6 +136,7 @@ logging host 192.168.1.146 transport udp port 11001
 snmp-server community public RO
 snmp-server community private RW
 snmp-server community mystring RO
+snmp-server community cisco@123 RW
 
 ! Apply ACLs to interfaces (inbound or outbound as per your requirements)
 interface GigabitEthernet0/1

@@ -10,6 +10,6 @@ __all__ = [
     "DefaultPassword",
     "WeakPassword",
     "LongHTTPSessionTimeout",
-    "NoAdminLineACL"
+    "NoAdminLineACL",
     # Add other rule class names here
 ]

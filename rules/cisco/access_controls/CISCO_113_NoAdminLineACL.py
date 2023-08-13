@@ -12,7 +12,7 @@ class NoAdminLineACL:
 
     def check(self):
         if self.lines_with_vty:
-            comment = "found on "
+            comment = ""
             for line_number, line in self.lines_with_vty:
                 comment += f"Line {line_number}: {line}, "
             return {"value": "FAIL", "comment": comment}

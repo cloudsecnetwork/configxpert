@@ -10,6 +10,6 @@ class WeakPassword:
                 if password_index + 1 < len(parts) and len(parts[password_index + 1]) <= 8:
                     return {
                         "value": "FAIL",
-                        "comment": f"found on Line {index}: '{line.strip()}'"
+                        "comment": f"Line {index}: '{line.strip()}'"
                     }
         return {"value": "PASS", "comment": ""}

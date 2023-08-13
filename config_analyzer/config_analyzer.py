@@ -13,6 +13,7 @@ def analyze_configuration(configuration):
     security_checks_results["Admin Line without an ACL"] = NoAdminLineACL(configuration).check()
 
     security_checks_results["Default SNMP String"] = DefaultSNMPString(configuration).check()
+    security_checks_results["SNMP Write Access Enabled"] = SNMPWriteAccess(configuration).check()
 
     # print(security_checks_results)
 

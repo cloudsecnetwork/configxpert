@@ -13,6 +13,6 @@ class LongHTTPSessionTimeout:
                     if timeout > timeout_limit:
                         return {
                             "value": "FAIL",
-                            "comment": f"found on Line {index}: '{line.strip()}'"
+                            "comment": f"Line {index}: '{line.strip()}'"
                         }
         return {"value": "PASS", "comment": ""}
