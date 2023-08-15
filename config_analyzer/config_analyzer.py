@@ -11,6 +11,8 @@ def analyze_configuration(configuration):
     security_checks_results["Weak Password in use"] = WeakPassword(configuration).check()
     security_checks_results["Long HTTP Session Timeout"] = LongHTTPSessionTimeout(configuration).check()
     security_checks_results["Admin Line without an ACL"] = NoAdminLineACL(configuration).check()
+    security_checks_results["Interface without ACL"] = InterfaceWithoutACL(configuration).check()
+
 
     security_checks_results["Default SNMP String"] = DefaultSNMPString(configuration).check()
     security_checks_results["SNMP Write Access Enabled"] = SNMPWriteAccess(configuration).check()
