@@ -26,7 +26,7 @@ class InterfaceWithoutACL:
 
         if interfaces_without_acl:
             comment = ", ".join(interfaces_without_acl)
-            return {"value": "FAIL", "comment": f"Interfaces without ACLs: {comment}"}
+            return {"value": "FAIL", "comment": f"Interfaces: {comment}"}
         else:
             return {"value": "PASS", "comment": ""}
 
