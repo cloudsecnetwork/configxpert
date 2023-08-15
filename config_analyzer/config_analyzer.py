@@ -14,6 +14,7 @@ def analyze_configuration(configuration):
 
     security_checks_results["Default SNMP String"] = DefaultSNMPString(configuration).check()
     security_checks_results["SNMP Write Access Enabled"] = SNMPWriteAccess(configuration).check()
+    security_checks_results["Clear Text SNMP"] = ClearTextSNMP(configuration).check()
 
     # print(security_checks_results)
 
