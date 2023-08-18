@@ -9,10 +9,10 @@ class UsersWithCiscoType7:
                 parts = line.split()
                 if len(parts) >= 4 and parts[3].startswith("7"):  # Check if the secret is using Cisco Type 7
                     username = parts[1]
-                    cisco_type7_usernames.append(f"username with Cisco Type 7 secret: {username} on line {line_number}")
+                    cisco_type7_usernames.append(f"{username} on line {line_number}")
 
         if cisco_type7_usernames:
             comment = ", ".join(cisco_type7_usernames)
-            return {"value": "FAIL", "comment": f"Users Configured With Cisco Type 7 Password Hashing Algorithm: {comment}"}
+            return {"value": "FAIL", "comment": comment}
         else:
             return {"value": "PASS", "comment": ""}
