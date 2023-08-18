@@ -29,6 +29,7 @@ line vty 0 15
 interface GigabitEthernet0/0
  description Management Interface
  ip address 192.168.1.1 255.255.255.0
+ no ip tcp keepalive
 
 ! Configure the WAN interface with an IP address (assuming connected to the Internet)
 interface GigabitEthernet0/1
@@ -141,6 +142,7 @@ snmp-server community cisco@123 RW
 ! Apply ACLs to interfaces (inbound or outbound as per your requirements)
 interface GigabitEthernet0/1
  ip access-group 1 in
+ no ip tcp keepalive
 
 ! SSH is not enabled for remote access
 ! ip domain-name example.com
