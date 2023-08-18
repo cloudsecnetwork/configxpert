@@ -1,7 +1,6 @@
 from rules.cisco.access_controls.base import *
 from rules.cisco.snmp.base import *
 from rules.cisco.insecure_configuration.base import *
-from rules.cisco.insecure_configuration.base import *
 # Import other rule classes from base.py if you have more rules
 
 def analyze_configuration(configuration):
