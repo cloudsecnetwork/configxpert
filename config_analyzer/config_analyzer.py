@@ -19,7 +19,8 @@ def analyze_configuration(configuration):
     security_checks_results["SNMP Write Access Enabled"] = SNMPWriteAccess(configuration).check()
     security_checks_results["Clear Text SNMP"] = ClearTextSNMP(configuration).check()
 
-    security_checks_results["No Inbound TCP Keep Alives"] = NoInboundTCPKeepAlives(configuration).check()    
+    security_checks_results["No Inbound TCP Keep Alives"] = NoInboundTCPKeepAlives(configuration).check()
+    security_checks_results["Clear Text HTTP Service"] = ClearTextHTTPService(configuration).check()
 
     # print(security_checks_results)
 
