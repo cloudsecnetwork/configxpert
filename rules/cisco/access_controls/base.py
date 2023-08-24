@@ -5,6 +5,7 @@ from .CISCO_112_LongHTTPSessionTimeout import LongHTTPSessionTimeout
 from .CISCO_113_NoAdminLineACL import NoAdminLineACL
 from .CISCO_114_InterfaceWithoutACL import InterfaceWithoutACL
 from .CISCO_115_UsersWithCiscoType7 import UsersWithCiscoType7
+from .CISCO_116_UsersWithCiscoType5 import UsersWithCiscoType5
 
 # Import other rule classes here if you have more rules
 
@@ -16,5 +17,6 @@ __all__ = [
     "NoAdminLineACL",
     "InterfaceWithoutACL",
     "UsersWithCiscoType7",
+    "UsersWithCiscoType5"
     # Add other rule class names here
 ]
