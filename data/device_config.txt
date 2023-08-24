@@ -24,6 +24,10 @@ username networkadmin secret $5$P6DdToT9$RKEtjG4JUzmOJfxiX3Du1VQtHkLJrHH7F9A4jdp
 line aux 0
 transport input all
 
+ssl cipher rc4-md5
+ssl cipher aes256-sha1
+tls cipher des-md5
+
 
 ! Enable password-based authentication for console and VTY lines
 enable password my_console_vty_password
