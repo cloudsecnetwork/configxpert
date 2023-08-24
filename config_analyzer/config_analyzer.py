@@ -22,6 +22,7 @@ def analyze_configuration(configuration):
 
     security_checks_results["No Inbound TCP Keep Alives"] = NoInboundTCPKeepAlives(configuration).check()
     security_checks_results["Clear Text HTTP Service"] = ClearTextHTTPService(configuration).check()
+    security_checks_results["Usernames With Admin"] = UsernamesWithAdmin(configuration).check()
 
     # print(security_checks_results)
 
