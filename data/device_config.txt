@@ -12,6 +12,10 @@ username admin privilege 15 password 12345
 line vty 0 4
 password admin
 
+username admin secret 7 12090404011C03162E
+username user123 secret 7 1234567890ABCDEF
+username networkadmin secret cisco123
+
 ! Enable password-based authentication for console and VTY lines
 enable password my_console_vty_password
 line console 0
