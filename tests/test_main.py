@@ -6,9 +6,16 @@ from main import main
 
 class TestMainFunction(unittest.TestCase):
 
-    @patch('argparse.ArgumentParser.parse_args', return_value=argparse.Namespace(file='data/device_config.txt'))
+    @patch('argparse.ArgumentParser.parse_args', return_value=argparse.Namespace(f='data/firewall.conf', d='fortinet'))
     @patch('sys.stdout', new_callable=StringIO)
-    def test_main_function(self, mock_stdout, mock_parse_args):
+    def test_main_function_fortinet(self, mock_stdout, mock_parse_args):
+        main()
+        output = mock_stdout.getvalue()
+        self.assertIn("Security Check Results:", output)  # Modify this assertion to match your actual output
+
+    @patch('argparse.ArgumentParser.parse_args', return_value=argparse.Namespace(f='data/device_config.txt', d='cisco'))
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_main_function_cisco(self, mock_stdout, mock_parse_args):
         main()
         output = mock_stdout.getvalue()
         self.assertIn("Security Check Results:", output)  # Modify this assertion to match your actual output

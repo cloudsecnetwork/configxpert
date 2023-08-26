@@ -62,7 +62,9 @@ pip install -r requirements.txt
 
 4. The generated security report will be displayed on the console. You can also reference the location for you own config files instea.
 ```
- python main.py -f "data/device_config.txt"
+ python main.py --help
+ python main.py -d "cisco" -f "data/device_config.txt"
+ python main.py -d "fortinet" -f "data/firewall.conf"
 ```
 
 ## Customizing Security Checks

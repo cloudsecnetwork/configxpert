@@ -3,7 +3,7 @@ from rules.cisco.snmp.base import *
 from rules.cisco.insecure_configuration.base import *
 # Import other rule classes from base.py if you have more rules
 
-def analyze_configuration(configuration):
+def analyze_cisco_configuration(configuration):
     # Perform security checks
     security_checks_results = {}
 
@@ -13,8 +13,8 @@ def analyze_configuration(configuration):
     security_checks_results["Long HTTP Session Timeout"] = LongHTTPSessionTimeout(configuration).check()
     security_checks_results["Admin Line without an ACL"] = NoAdminLineACL(configuration).check()
     security_checks_results["Interface without ACL"] = InterfaceWithoutACL(configuration).check()
-    security_checks_results["Users Configured With Cisco Type 7 Password Hashing Algorithm"] = UsersWithCiscoType7(configuration).check()
-    security_checks_results["Users Configured With Cisco Type 5 Password Hashing Algorithm"] = UsersWithCiscoType5(configuration).check()
+    security_checks_results["Users Configured With Type 7 Password"] = UsersWithCiscoType7(configuration).check()
+    security_checks_results["Users Configured With Type 5 Password"] = UsersWithCiscoType5(configuration).check()
 
     security_checks_results["Default SNMP String"] = DefaultSNMPString(configuration).check()
     security_checks_results["SNMP Write Access Enabled"] = SNMPWriteAccess(configuration).check()
@@ -24,7 +24,7 @@ def analyze_configuration(configuration):
     security_checks_results["Clear Text HTTP Service"] = ClearTextHTTPService(configuration).check()
     security_checks_results["Usernames With Admin"] = UsernamesWithAdmin(configuration).check()
     security_checks_results["AUX Port Not Disabled"] = AUXPortStatus(configuration).check()    
-    security_checks_results["Weak Secure Sockets Layer (SSL)/early Transport Layer Security (TLS) Ciphers Supported"] = WeakTLSCipherSuites(configuration).check()    
+    security_checks_results["Weak SSL/TLS Ciphers Supported"] = WeakTLSCipherSuites(configuration).check()    
 
     # print(security_checks_results)
 

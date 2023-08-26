@@ -12,7 +12,7 @@ class WeakTLSCipherSuites:
                     weak_cipher_suites.append(f"Weak cipher suite '{cipher_suite}' detected on line {line_number}")
 
         if weak_cipher_suites:
-            comment = "\n".join(weak_cipher_suites)
+            comment = "; ".join(weak_cipher_suites)
             return {"value": "FAIL", "comment": comment}
         else:
             return {"value": "PASS", "comment": ""}
