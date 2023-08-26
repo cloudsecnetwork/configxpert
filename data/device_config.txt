@@ -21,6 +21,13 @@ username admin secret $5$8G3iQSv9$E72K70ZgqO0k6Ucv7w5CGSftHFKI/QUDXtT4Kt/gN.
 username user123 secret simplepassword
 username networkadmin secret $5$P6DdToT9$RKEtjG4JUzmOJfxiX3Du1VQtHkLJrHH7F9A4jdpZze/
 
+line aux 0
+transport input all
+
+ssl cipher rc4-md5
+ssl cipher aes256-sha1
+tls cipher des-md5
+
 
 ! Enable password-based authentication for console and VTY lines
 enable password my_console_vty_password
