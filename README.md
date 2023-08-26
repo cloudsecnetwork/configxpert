@@ -60,7 +60,7 @@ cd configxpert-net
 pip install -r requirements.txt
 ```
 
-4. The generated security report will be displayed on the console. You can also reference the location for you own config files instea.
+4. The generated security report will be displayed on the console. You can also reference the location for you own config files instead. See examples below.
 ```
  python main.py --help
  python main.py -d "cisco" -f "data/device_config.txt"
