@@ -7,7 +7,10 @@ def analyze_fortinet_configuration(configuration):
     # Perform security checks
     security_checks_results = {}
 
-    security_checks_results["System interfaces with HTTP access"] = InterfaceWithHTTP(configuration).check()
+    security_checks_results["System interface with HTTP access"] = InterfaceWithHTTP(configuration).check()
+    security_checks_results["Weak encryption on IPSec interface"] = WeakIPSecEncryption(configuration).check()
+    security_checks_results["Disabled Perfect Forward Secrecy on IPSec interface"] = NoPFSOnIPSec(configuration).check()
+    security_checks_results["Disabled replay protection on IPSec interface"] = NoReplayOnIPSec(configuration).check()
 
     security_checks_results["Filtering rule not configured properly"] = ImproperFiltering(configuration).check()
     security_checks_results["Deep application inspection is disabled"] = DeepAppInspectionDisabled(configuration).check()
