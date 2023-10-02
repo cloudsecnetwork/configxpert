@@ -1,6 +1,7 @@
 import argparse
 import colorama
-from config_parser.config_parser import read_configuration_from_file
+from config_parser.config_parser import read_cisco_file
+from config_parser.config_parser import read_fortinet_file
 from config_analyzer.cisco_config_analyzer import analyze_cisco_configuration
 from config_analyzer.fortinet_config_analyzer import analyze_fortinet_configuration
 from config_reporter.config_reporter import generate_security_report
@@ -22,15 +23,18 @@ def main():
     config_filename = args.f
     device_type = args.d
 
-    # Read the configuration from the specified file
-    configuration = read_configuration_from_file(config_filename)
-    if not configuration:
-        return
-
     # Analyze the configuration for security checks based on the device type
     if device_type.lower() == "fortinet":
+        # Read the configuration file for fortinet
+        configuration = read_fortinet_file(config_filename)
+        if not configuration:
+            return
         analyzed_results = analyze_fortinet_configuration(configuration)
     elif device_type.lower() == "cisco":
+        # Read the configuration file for cisco
+        configuration = read_cisco_file(config_filename)
+        if not configuration:
+            return
         analyzed_results = analyze_cisco_configuration(configuration)
     else:
         # print("Unsupported device type. Please provide 'fortinet' or 'cisco' as the device type.")
